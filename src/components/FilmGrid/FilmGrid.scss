@@ -1,0 +1,13 @@
+.film-grid-container {
+display:grid;
+grid-gap: 2rem;
+padding: 1rem;
+
+@media (min-width: 768px) {
+grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+grid-auto-rows: 500px;
+}
+  
+
+}
+

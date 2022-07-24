@@ -1,0 +1,15 @@
+.film-container {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 50%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+    z-index: 3;
+    background-color: black;
+    color: white;
+  }
+}

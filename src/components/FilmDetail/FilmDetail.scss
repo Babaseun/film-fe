@@ -1,0 +1,9 @@
+.film-detail-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .film-detail-content p{
+        margin-bottom: 3rem;
+    }
+}

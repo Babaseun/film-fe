@@ -1,24 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import useFilmsContextValue from './customHooks/useFilmsContextValue';
+import { FilmListContext } from './context/FilmListContext';
+import Body from './layouts/Body';
+import FilmGrid from './components/FilmGrid/FilmGrid';
+import FilmDetail from './components/FilmDetail/FilmDetail';
+import SearchBox from './components/SearchBox/SearchBox';
 
 function App() {
+  const filmContextDefaultValue = useFilmsContextValue();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FilmListContext.Provider value={filmContextDefaultValue}>
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={<Body searchBox={SearchBox} filmGrid={FilmGrid} />}
+            />
+            <Route
+              path="/films"
+              element={<Body searchBox={SearchBox} filmGrid={FilmGrid} />}
+            />
+            <Route path="/films/:ID" element={<FilmDetail />} />
+          </Routes>
+        </Router>
+      </FilmListContext.Provider>
     </div>
   );
 }
